@@ -1,0 +1,90 @@
+<!-- Wrapper -->
+<div class="position-relative">
+
+	<!-- Header image -->
+	<div class="container-fluid p-0">
+
+		<!-- Image -->
+		<div class="row m-0 justify-content-center position-relative">
+			<img src="./media/image/home_header.webp" 
+					 alt="Money &amp; More" 
+					 class="img-fluid p-0">
+
+			<!-- Image content -->
+			<div class="image-content from-left position-absolute 
+									bg-dark-transparent">
+				<p class="text-center text-light display-6 mb-0">
+					Független
+				</p>
+				<p class="text-center text-light display-3">
+					Pénzügyi tanácsadás
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Content -->
+	<div class="container mt-5">
+
+		<!-- Break line -->
+		<hr class="mb-4">
+
+		<!-- Title -->
+		<div class="row justify-content-center mb-3">
+			<p class="text-center text-color-base fs-2">
+				Mindig, mindenhol a legjobbat keressük
+			</p>
+		</div>
+
+		<!-- Content -->
+		<div class="row justify-content-center mb-3">
+			<p class="fs-5 col-11 col-sm-10 col-md-9 col-lg-8 text-muted text-indent-3">
+				Teljes körű termékpalettánk minden élethelyzetre kínál megoldást, mindenkinek a legjobbat. Egy adott élethelyzetben több jó pénzügyi megoldás is lehetséges. Ahhoz, hogy mindig ki tudjuk választani a legjobb ajánlatot, széles, egyszersmind minőségi termékkínálat és alapos tudás szükséges. A legtöbb banki és biztosítói partnerrel szerződésben állva valóban sokszínű és válogatott termékpalettáról vagyunk képesek ügyfeleink pénzügyi igényeire megoldást ajánlani.
+			</p>
+		</div>
+
+		<!-- Relationship button -->
+		<div class="row justify-content-center mb-3">
+			<a type="button" 
+				 class="btn btn-lg btn-success btn-base text-uppercase 
+				 				shadow-sm-bottom-end w-auto px-5 py-2 btnClickEffect"
+				 ui-sref="relationship({type: 'INQ'})">
+				 érdekel
+			</a>
+		</div>
+
+		<!-- Break line -->
+		<hr class="mt-5">
+	</div>
+
+	<!-- Cards -->
+	<div class="container-fluid mt-5 p-0">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-0">
+			<div class="col" ng-repeat="item in data track by $index">
+				<div class="card h-100"
+						 ng-class="$index % 2 === 0 ? 'bg-base' : 'bg-dark-subtle'">
+					<img class="card-img-top img-fluid" alt="..." 
+							 ng-src="./media/image/home_card_{{$index}}.webp">
+					<div class="card-body text-white">
+						<p class="card-title text-center fs-2">
+							{{ item.title }}
+						</p>
+						<div class="text-center my-4">
+							<img class="w-50" alt="..." 
+									 ng-src="./media/image/home_card_and.webp">
+						</div>
+						<div class="container">
+							<p class="card-text fs-5"
+								 ng-repeat="content in item.contents">
+								{{ content }}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scroll to top -->
+	<ng-scroll-to-top></ng-scroll-to-top>
+</div>

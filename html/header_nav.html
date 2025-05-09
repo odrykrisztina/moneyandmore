@@ -1,0 +1,315 @@
+<nav class="navbar navbar-expand-md 
+						navbar-light bg-light py-1 text-nowrap">
+
+	<!-- Container -->
+	<div class="container-fluid">
+
+		<!-- Hamburger icon -->
+		<button class="navbar-toggler ms-auto" 
+						type="button" 
+						data-bs-toggle="collapse" 
+						data-bs-target="#navbar_content" 
+						aria-controls="navbar_content" 
+						aria-expanded="false">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar content -->
+		<div id="navbar_content" 
+				 class="collapse navbar-collapse mt-3 mt-md-0">
+
+			<!-- Navbar content LEFT -->
+			<ul class="navbar-nav me-auto">
+
+				<!-- Home -->
+				<li class="nav-item me-1">
+					<a class="nav-link" 
+						 ui-sref="home" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							Kezdőoldal
+						</span>
+					</a>
+				</li>
+				
+				<!-- About us -->
+				<li class="nav-item me-1">
+					<a class="nav-link" 
+						 ui-sref="about_us" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							rólunk
+						</span>
+					</a>
+				</li>
+
+				<!-- Co-Workers -->
+				<li class="nav-item me-1">
+					<a class="nav-link" 
+						 ui-sref="worker" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							munkatársak
+						</span>
+					</a>
+				</li>
+
+				<!-- Gallery -->
+				<li class="nav-item me-1">
+					<a class="nav-link" 
+						 ui-sref="gallery" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							galéria
+						</span>
+					</a>
+				</li>
+
+				<!-- Relationship -->
+				<li class="nav-item me-1">
+					<a class="nav-link" 
+						 ui-sref="relationship" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							kapcsolat
+						</span>
+					</a>
+				</li>
+			</ul>
+
+			<!-- Navbar content RIGHT -->
+			<ul class="navbar-nav ms-auto">
+
+				<!-- Data dropdown -->
+				<li class="dropdown nav-item ms-1"
+						data-bs-auto-close="true"
+						ng-if="$root.user.type === 'A'">
+          <a class="dropdown-toggle nav-link" href="#" role="button" 
+						 data-bs-toggle="dropdown" 
+						 aria-expanded="false">
+						<span class="text-capitalize text-small-caps">
+							Adatok
+						</span>
+          </a>
+
+					<!-- Dropdown menu -->
+					<ul class="dropdown-menu dropdown-menu-end 
+										 text-center text-md-start">
+
+						<!-- Offices -->
+						<li class="nav-item mx-1">
+							<a class="nav-link" 
+								ui-sref="offices" 
+								ui-sref-active="active"
+								data-bs-toggle="collapse" 
+								data-bs-target=".navbar-collapse.show">
+								<span class="text-small-caps">
+									irodáink
+								</span>
+							</a>
+						</li>
+
+						<!-- Types -->
+						<li class="nav-item mx-1">
+							<a class="nav-link" 
+								ui-sref="types" 
+								ui-sref-active="active"
+								data-bs-toggle="collapse" 
+								data-bs-target=".navbar-collapse.show">
+								<span class="text-small-caps">
+									Típus törzs
+								</span>
+							</a>
+						</li>
+
+						<!-- Users -->
+						<li class="nav-item mx-1">
+							<a class="nav-link" 
+								 ui-sref="users"
+								 ui-sref-active="active"
+								 data-bs-toggle="collapse" 
+						 		 data-bs-target=".navbar-collapse.show">
+								<span class="text-capitalize text-small-caps">
+									felhasználók
+								</span>
+							</a>
+						</li>
+
+						<!-- Workers -->
+						<li class="nav-item mx-1">
+							<a class="nav-link" 
+								 ui-sref="workers"
+								 ui-sref-active="active"
+								 data-bs-toggle="collapse" 
+						 		 data-bs-target=".navbar-collapse.show">
+								<span class="text-capitalize text-small-caps">
+									dolgozók
+								</span>
+							</a>
+						</li>
+
+						<!-- Tasks to be assigned -->
+            <li class="nav-item mx-1">
+              <a class="nav-link"
+                 ui-sref="tasks({type:'user'})" 
+                 ui-sref-active="active"
+                 data-bs-toggle="collapse" 
+                 data-bs-target=".navbar-collapse.show">
+                <span class="text-small-caps">
+                  Kiosztandó feladatok
+                </span>
+              </a>
+            </li>
+
+						<!-- Tasks -->
+						<li class="nav-item mx-1">
+							<a class="nav-link" 
+								ui-sref="tasks({type:null})" 
+								ui-sref-active="active"
+								data-bs-toggle="collapse" 
+								data-bs-target=".navbar-collapse.show">
+								<span class="text-capitalize text-small-caps">
+									feladatok
+								</span>
+							</a>
+						</li>
+						
+						<!-- Contract -->
+						<li class="nav-item mx-1">
+							<a class="nav-link" 
+								 ui-sref="contract({type:null})"
+								 ui-sref-active="active"
+								 data-bs-toggle="collapse" 
+						 		 data-bs-target=".navbar-collapse.show">
+								<span class="text-capitalize text-small-caps">
+									szerződések
+								</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
+				<!-- User -->
+				<li class="nav-item ms-1"
+						ng-if="!$root.user.id">
+					<a class="nav-link" 
+						 ui-sref="user" 
+						 ui-sref-active="active"
+						 data-bs-toggle="collapse" 
+						 data-bs-target=".navbar-collapse.show">
+						<span class="text-capitalize text-small-caps">
+							bejelenkezés
+						</span>
+					</a>
+				</li>
+
+				<!-- User dropdown -->
+				<li class="dropdown nav-item ms-1"
+						data-bs-auto-close="true"
+						ng-if="$root.user.id">
+          <a class="dropdown-toggle nav-link" 
+						 href="#" 
+						 role="button" 
+						 data-bs-toggle="dropdown" 
+						 aria-expanded="false">
+						<span class="me-1"
+									ng-if="$root.isUserDataCompleted === false"
+									data-bs-toggle="tooltip"
+									data-bs-custom-class="custom-tooltip"
+									data-bs-html="true"
+									data-bs-title="&lt;p class='my-1'>Az Ön adatai hiányosak!&lt;/br>
+																 &lt;small>A hiányzó adatokat, 
+																 a profil beállítások között tudja felvenni!
+																 &lt;/small>&lt;/p>">
+							<i class="text-danger fa-circle-exclamation fa-solid"></i>
+						</span>
+						<span class="text-capitalize text-small-caps">
+							felhasználó
+						</span>
+          </a>
+
+					<!-- Dropdown menu -->
+					<ul class="dropdown-menu dropdown-menu-end
+										 text-center text-md-start">
+
+						<!-- User name -->
+						<li class="nav-item">
+							<span class="dropdown-item-text text-capitalize 
+													 text-small-caps text-nowrap px-2"
+										ng-if="$root.user.id">
+								{{ $root.user.name }}
+							</span>
+						</li>
+
+						<!-- Devider -->
+						<li><hr class="dropdown-divider"></li>
+
+						<!-- Profile -->
+						<li class="nav-item mx-1">
+							<a class="nav-link" 
+								 ui-sref="profile"
+								 ui-sref-active="active"
+								 data-bs-toggle="collapse" 
+						 		 data-bs-target=".navbar-collapse.show">
+								<span class="text-capitalize text-small-caps">
+									profil
+								</span>
+							</a>
+						</li>
+
+						<!-- Contract -->
+						<li class="nav-item mx-1"
+								ng-if="$root.user.type !== 'A'">
+							<a class="nav-link" 
+								 ui-sref="contract({type:'user'})"
+								 ui-sref-active="active"
+								 data-bs-toggle="collapse" 
+						 		 data-bs-target=".navbar-collapse.show">
+								<span class="text-capitalize text-small-caps">
+									szerződéseim
+								</span>
+							</a>
+						</li>
+
+						<!-- Tasks -->
+						<li class="nav-item mx-1"
+								ng-if="$root.user.type === 'W'">
+							<a class="nav-link" 
+								 ui-sref="tasks({type:'user'})"
+								 ui-sref-active="active"
+								 data-bs-toggle="collapse" 
+						 		 data-bs-target=".navbar-collapse.show">
+								<span class="text-capitalize text-small-caps">
+									feladataim
+								</span>
+							</a>
+						</li>
+
+						<!-- Devider -->
+						<li><hr class="dropdown-divider"></li>
+
+						<!-- Logout -->
+						<li class="nav-item cursor-pointer mx-1">
+							<a class="nav-link"
+								 ng-click="$root.logout()">
+								<span class="text-capitalize text-small-caps">
+									kijelenkezés
+								</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

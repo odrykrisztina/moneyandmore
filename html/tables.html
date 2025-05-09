@@ -1,0 +1,72 @@
+<div class="position-relative">
+  <div class="container-fluid p-0">
+    <div class="row justify-content-center">
+
+      <!-- Tables -->
+      <div class="col-12" 
+           ng-repeat="tbl in str.tables track by $index"
+           ng-init="tblPointer=$index"
+           ng-click="methods.changeTblPointer($index)">
+
+        <!-- Header -->
+        <div class="table-header px-3 py-1 
+                    border border-2 text-white d-flex" 
+             ng-class="{'border-success-subtle': str.tblPointer === tblPointer,
+                        'bg-base': str.tblPointer === tblPointer, 
+                        'border-secondary-subtle': str.tblPointer !== tblPointer,
+                        'bg-secondary': str.tblPointer !== tblPointer,
+                        'cursor-pointer': str.tblPointer !== tblPointer}"
+             style="min-height:44px;">
+          <h5 class="mb-0 text-small-caps me-auto mt-1">
+            {{ tbl.title }}
+          </h5>
+        </div>
+
+        <!-- Table container -->
+        <div class="table-responsive" ng-style="{{tbl.style}}">
+
+          <!-- Table -->
+          <table class="table table-sm table-bordered 
+                        table-striped table-hover mb-0">
+            
+            <!-- Header -->
+            <thead class="table-dark fix-header sticky-top">
+              <tr>
+                <th ng-repeat="(k, v) in tbl.header">{{ v }}</th>
+              </tr>
+            </thead>
+
+            <!-- Body -->
+            <tbody>
+
+              <!-- Table rows -->
+              <tr ng-repeat="item in data[tblPointer] track by $index"
+                  ng-if="tbl.rowPointer !== -1 && (!tbl.relationship || 
+                         item[tbl.relationship.currentKey] === 
+                         data[tbl.relationship.parentIndex]
+                         [str.tables[tbl.relationship.parentIndex].rowPointer]
+                         [tbl.relationship.parentKey])"
+                  ng-class="{'table-success': tbl.rowPointer === $index,
+                             'cursor-pointer': str.tblPointer === tblPointer}"
+                  ng-click="methods.changeRowPointer(tblPointer, $index)">
+
+                <!-- Table cells -->
+                <td class="text-nowrap" 
+                    ng-repeat="(k, v) in tbl.header">
+                  {{ item[k] }}
+                </td>
+              </tr>
+
+              <!-- Empty row -->
+              <tr ng-if="tbl.rowPointer === -1">
+                <td colspan="{{ tbl.cellsLength }}" class="text-center">
+                  Üres
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

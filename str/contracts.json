@@ -1,0 +1,34 @@
+{
+  "tables": [
+    {
+      "title": "Szerződések",
+      "style": ["'max-height':'40vh'","'min-height':'40vh'"],
+      "header": {
+        "id": "#",
+        "unique_id": "Szerződés azonosító",
+        "typeName": "Típus",
+        "userName": "Ügyfél",
+        "workerName": "Felelős",
+        "created": "Létrehozva",
+        "valid": "Érvényes"
+      }
+    },
+    {
+      "title": "Szerződés mellékletei",
+      "style": ["'max-height':'40vh'","'min-height':'40vh'"],
+      "header": {
+        "id": "#",
+        "typeName": "Típus",
+        "comment": "Megjegyzés",
+        "file": "Fájl",
+        "created": "Létrehozva",
+        "valid": "Érvényes"
+      },
+      "relationship": {
+        "parentIndex": 0,
+        "parentKey": "id",
+        "currentKey": "contract_id"
+      }
+    }
+  ]
+}

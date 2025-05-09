@@ -1,0 +1,128 @@
+<!-- Wrapper -->
+<div class="position-relative">
+
+	<!-- Header image -->
+	<div class="container-fluid p-0">
+
+		<!-- Image -->
+		<div class="row m-0 justify-content-center position-relative">
+			<img src="./media/image/workers_header.webp" 
+					 alt="..." 
+					 class="img-fluid p-0">
+
+			<!-- Image content -->
+			<div class="image-content from-left position-absolute 
+					 				bg-dark-transparent">
+				<p class="text-center text-light display-3 py-3">
+					Legyél csapatunk tagja!
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Container -->
+	<div class="container">
+
+		<!-- Button relationship -->
+		<div class="row my-5 pe-5 justify-content-end">
+			<a type="button " 
+				 class="btn btn-lg btn-success btn-base text-uppercase 
+								 shadow-sm-bottom-end w-auto px-5 py-2 btnClickEffect"
+				 ui-sref="relationship({type: 'CAR'})">
+				 jelentkezés
+			</a>
+		</div>
+
+		<!-- Title -->
+		<div class="row justify-content-center mb-3 mt-5">
+			<p class="col-11 col-md-10 col-xl-9 text-center 
+								text-color-base display-6 fw-semibold">
+				Munkatársak
+			</p>
+		</div>
+
+		<!-- Workers by ranking -->
+		<div class="col mb-5" ng-repeat="x in [].constructor(3) track by $index">
+			<div class="row justify-content-center g-4
+									row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-4">
+				<div class="col" ng-repeat="item in data track by $index"
+						 ng-if="($parent.$index === 0 && item.ranking >= 4) ||
+						 		($parent.$index === 1 && item.ranking > 0 && item.ranking &lt;= 3) ||  
+						 		($parent.$index === 2 && item.ranking === 0)">
+					<div class="card h-100 position-relative bg-secondary-subtle bg-dark
+											shadow-sm-bottom-end overflow-hidden"
+							 ng-click="methods.itemClicked(item.id_card)"
+							 ng-class="{'cursor-pointer': item.id_card}">
+
+						<!-- Open new window -->
+						<!-- <a ng-href="{{item.id_card}}" target="_blank">
+							<img class="card-img-top img-fluid"
+								 	 alt="person" 
+								 	 ng-src="{{item.img}}">
+						</a> -->
+
+						<!-- Open modal -->
+						<img class="card-img-top img-fluid"
+								 ng-if="item.id_card"
+								 alt="person" 
+								 ng-src="{{item.img}}"
+								 data-bs-toggle="modal" 
+	             	 data-bs-target="#worker_preview">
+						<img class="card-img-top img-fluid"
+								 ng-if="!item.id_card" 
+								 alt="person" 
+								 ng-src="{{item.img}}">
+						<div class="card-body text-center position-absolute 
+												text-white fs-4 w-100 bottom-0 py-2 bg-dark-transparent">
+							{{item.name}}
+							<p class="fs-6 my-1" ng-if="item.rank">
+								{{item.rank}}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+
+		<!-- Button relationship -->
+		<div class="row my-5 ps-5">
+			<a type="button" 
+				 class="btn btn-lg btn-success btn-base text-uppercase mb-5
+				 				shadow-sm-bottom-end w-auto px-5 py-2 btnClickEffect"
+				 ui-sref="relationship({type: 'CAR'})">
+				 jelentkezés
+			</a>
+		</div>
+	</div>
+
+	<!-- Scroll to top -->
+	<ng-scroll-to-top></ng-scroll-to-top>
+
+	<!-- Modal -->
+	<div id="worker_preview"
+			 class="modal fade"  
+			 data-bs-backdrop="static" 
+			 data-bs-keyboard="false" 
+			 tabindex="-1"
+			 ng-bs-hide-modal>
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" 
+									class="btn-close text-color-base" 
+									data-bs-dismiss="modal" 
+									aria-label="Close">
+					</button>
+	      </div>
+	      <div class="modal-body position-relative p-0">
+					<iframe class="w-100"
+									style="min-height: calc(100vh - 120px) !important;"
+									ng-src="{{idCard | trustAsResourceUrl}}" 
+									frameborder="0">
+					</iframe>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>

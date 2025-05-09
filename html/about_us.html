@@ -1,0 +1,152 @@
+<!-- Wrapper -->
+<div class="position-relative">
+
+	<!-- Header image -->
+	<div class="container-fluid p-0">
+
+		<!-- Image -->
+		<div class="row m-0 justify-content-center position-relative">
+			<img src="./media/image/about_us_header.webp" 
+					 alt="Money &amp; More" 
+					 class="img-fluid p-0">
+
+			<!-- Image content -->
+			<div class="image-content from-right position-absolute 
+					 				bg-dark-transparent">
+ 				<p class="text-center text-light display-3 py-3">
+					Személyre szabott megoldások!
+ 				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Container -->
+	<div class="container mt-5">
+
+		<!-- Title -->
+		<div class="row justify-content-center mb-3 mt-5">
+			<p class="col-11 col-md-10 col-xl-9 text-center text-color-base fs-2 fw-bold">
+				A Money & More Pénzügyi Tanácsadó Zrt. több, mint 10 éve meghatározó szereplője a piacnak,
+			</p>
+		</div>
+
+		<!-- Counter -->
+    <ul class="row counter-container list-unstyled justify-content-center mb-5">
+			<li class="col-12 col-md-4 mb-3"
+					ng-repeat="x in counters track by $index">
+				<div class="counter display-4 fw-semibold text-center text-muted mb-3" 
+						 data-total="{{x.total}}">
+				</div>
+				<div class="content text-color-base fs-4 fw-medium text-center">
+					{{x.content}}
+				</div>
+			</li>
+		</ul>
+
+		<!-- Advertisements -->
+		<ul class="row list-unstyled justify-content-center mb-5">
+			<li class="col-12 col-lg-6 mb-3 px-1 px-lg-3 px-xxl-5"
+					ng-repeat="a in data.advertisement track by $index">
+				<div class="row">
+					<p class="fs-4 fw-semibold text-color-base text-uppercase mb-3 h-100">
+						{{a.title}}
+					</p>
+				</div>
+				<p class="content text-muted fs-5 text-indent-3"
+					 ng-repeat="c in a.contents track by $index">
+					{{c}}
+				</p>
+			</li>
+		</ul>
+
+		<!-- Our solutions title -->
+		<div class="row mt-3 ps-4">
+			<p class="fs-2 text-color-base">
+				megoldásaink
+			</p>
+		</div>
+
+		<!-- Our solutions cards -->
+		<div class="row row-cols-1 row-cols-md-3 g-3">
+			<div class="col card-solution cursor-pointer" 
+					 ng-repeat="item in data.solutions track by $index"
+					 ui-sref="relationship({type: item.id})">
+				<div class="card h-100 text-center pt-3 pb-0 border-0">
+					<img class="card-img-top img-fluid w-50 mx-auto" alt="..." 
+							 ng-src="./media/image/about_us_{{$index}}.webp">
+					<div class="card-body">
+						<p class="card-title text-center fs-4 text-color-base">
+							{{item.name}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Offices title -->
+		<div class="row mt-5 ps-4">
+			<P class="fs-2 text-color-base">
+				irodáink országszerte
+			</P>
+		</div>
+
+		<!-- Offices -->
+		<div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-2">
+			<table class="col offices"
+						ng-repeat="office in data.offices track by $index">
+				<tbody>
+					<tr ng-repeat="keys in [['postcode','city'],
+																 	['address']] track by $index">
+						<td class="text-break px-5">
+							<span ng-repeat="key in keys track by $index"
+										ng-if="office[key]">
+								{{office[key]}}
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<!-- Relationship title -->
+		<div class="row mt-5 ps-4">
+			<P class="fs-2 text-color-base">
+				kapcsolat
+			</P>
+		</div>
+
+		<!-- Relationship -->
+		<div class="row ps-4">
+			<P class="fs-5 text-muted">
+				1138 Budapest, Madarász Viktor utca 47-49.  |  info@moneyandmore.hu
+			</P>
+		</div>
+
+		<!-- Button relationship -->
+		<div class="row mb-5 ps-4 justify-content-strat">
+			<a type="button " 
+				class="btn btn-lg btn-success btn-base text-uppercase 
+								shadow-sm-bottom-end w-auto px-5 py-2 btnClickEffect"
+				ui-sref="relationship({type: 'REL'})">
+				jelentkezés
+			</a>
+		</div>
+
+		<!-- Partners title -->
+		<div class="row mt-5 ps-4">
+			<P class="fs-2 text-color-base">
+				partnereink
+			</P>
+		</div>
+
+		<!-- Partners image-->
+		<div class="row m-0 justify-content-center position-relative">
+			<img src="./media/image/partner_logos.webp" 
+					 alt="Money &amp; More" 
+					 class="img-fluid p-0">
+		</div>
+	</div>
+
+	<!-- Scroll to top -->
+	<ng-scroll-to-top></ng-scroll-to-top>
+</div>

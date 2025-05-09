@@ -1,0 +1,20 @@
+{
+  "tables": [
+    {
+      "title": "Felhasználók",
+      "style": ["'max-height':'88vh'","'min-height':'88vh'"],
+      "header": {
+        "id": "#",
+        "name": "Név",
+        "typeName": "Típus",
+        "born": "Született",
+        "genderName": "Neme",
+        "phone": "Telefon",
+        "address": "Cím",
+        "email": "Email",
+        "password": "Jelszó",
+        "validName": "Érvényes"
+      }
+    }
+  ]
+}

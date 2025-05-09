@@ -1,0 +1,871 @@
+<!-- Container -->
+<div class="container-fluid"></div>
+
+<!-- Profile dialog -->
+<div id="profile-dialog" 
+     class="modal fade" 
+     data-bs-backdrop="static" 
+     data-bs-keyboard="false"
+     aria-modal="true"
+     tabindex="-1"
+		 ng-bs-hide-modal>
+
+  <!-- Modal dialog -->
+	<div class="modal-dialog modal-lg 
+							modal-dialog-centered modal-dialog-scrollable">
+	  <div class="modal-content">
+
+      <!-- Modal header -->
+	    <div class="modal-header justify-content-center">
+        <i class="fa-solid fa-id-card fa-3x"></i>
+				<h1 class="ms-2 text-capitalize text-small-caps">
+					profil
+				</h1>
+			</div>
+
+      <!-- Modal body -->
+	    <div class="modal-body">
+
+        <!-- Form profile -->
+				<form class="form-profile"
+						  name="profileForm" novalidate
+              ng-if="helper.modelFormKey==='profile'">
+
+					<!-- Title -->
+					<div class="row mb-4">
+						<h6 class="text-center display-6">Szemályes adatok módosítása!</h6>
+					</div>
+
+				  <!-- Identifier -->
+				  <div class="row input-row mb-0">
+
+				  	<!-- Label -->
+				  	<label for="id" 
+				  				 class="col-form-label
+                          col-5 text-end fw-semibold">
+				  		<i class="fa-solid fa-id-badge"></i>
+				  		<span class="ms-1 text-capitalize">
+                azonosító:
+              </span>
+				  	</label>
+
+				  	<!-- Input identifier -->
+				  	<div class="col-7 position-relative">
+				  		<input id="id"
+				  					 name="id" 
+				  					 type="text"
+				  					 class="form-control-plaintext"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+				  					 ng-model="model.profile.id"
+				  					 disabled
+				  					 readonly>
+				  	</div>
+				  </div>
+
+				  <!-- User type and rank-->
+				  <div class="row input-row mb-0">
+
+				  	<!-- Label -->
+				  	<label for="typeName" 
+				  				 class="col-form-label
+                          col-5 text-end fw-semibold">
+				  		<i class="fa-solid fa-user-gear"></i>
+				  		<span class="ms-1 text-capitalize">
+                típus:
+              </span>
+				  	</label>
+
+				  	<!-- Input user type -->
+				  	<div class="col-7 position-relative">
+				  		<div class="row row-cols-auto g-3 align-items-center">
+
+				  			<!-- Input user type -->
+				  			<div class="col-12 col-md-6">
+				  				<input id="typeName"
+				  							name="typeName" 
+				  							type="text"
+				  							class="form-control-plaintext"
+				  							spellcheck="false" 
+				  							autocomplete="off"
+				  							ng-model="model.profile.typeName"
+				  							disabled
+				  							readonly>
+				  			</div>
+
+				  			<!-- Input rank type -->
+				  			<div class="col-12 col-md-6" ng-if="model.profile.rankName">
+				  				<input id="rankName"
+				  							name="rankName" 
+				  							type="text"
+				  							class="form-control-plaintext"
+				  							spellcheck="false" 
+				  							autocomplete="off"
+				  							ng-model="model.profile.rankName"
+				  							disabled
+				  							readonly>
+				  			</div>
+				  		</div>
+				  	</div>
+				  </div>
+
+          <!-- Email -->
+				  <div class="row input-row mb-4">
+
+				  	<!-- Label -->
+				  	<label for="email" 
+				  				 class="col-form-label
+                          col-5 text-end fw-semibold">
+				  		<i class="fa-solid fa-envelope me-1"></i>
+				  		<span class="ms-1 text-capitalize">
+                email cím:
+              </span>
+				  	</label>
+
+				  	<!-- Input email -->
+				  	<div class="col-7 position-relative">
+				  		<input id="email"
+				  					 name="email" 
+				  					 type="email"
+				  					 class="form-control-plaintext"
+				  					 spellcheck="false" 
+				  					 autocomplete="off" 
+				  					 maxlength="50"
+				  					 ng-model="model.profile.email"
+				  					 disabled
+				  					 readonly>
+				  	</div>
+				  </div>
+
+				  <!-- Name -->
+				  <div class="row input-row mb-3">
+
+				  	<!-- Label -->
+				  	<label for="name" 
+				  				 class="col-form-label 
+                          col-5 text-end fw-semibold">
+				  		<i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  		<i class="fa-solid fa-user me-1"></i>
+				  		<span class="ms-1 text-capitalize">
+                név:
+              </span>
+				  	</label>
+
+				  	<!-- Input name -->
+				  	<div class="col-6 position-relative">
+				  		<input id="name"
+				  					 name="name" 
+				  					 type="text"
+				  					 placeholder="név"
+				  					 class="form-control"
+				  					 spellcheck="false" 
+				  					 autocomplete="off" 
+				  					 required
+				  					 maxlength="200"
+				  					 ng-model="model.profile.name"
+				  					 ng-clear-icon
+                     ng-disabled="!helper.isInEditMode">
+				  	</div>
+
+            <!-- Check mark -->
+            <div class="col-1 mt-1">
+              <span class="check-mark fw-bold text-success float-start"
+                    ng-show="profileForm.name.$valid && helper.isInEditMode">
+                &check;
+              </span>
+             </div>
+				  </div>
+
+				  <!-- Born -->
+				  <div class="row input-row mb-3">
+
+				  	<!-- Label -->
+				  	<label for="born" 
+				  				 class="col-form-label 
+                          col-5 text-end fw-semibold">
+				  		<i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  		<i class="fa-solid fa-calendar-days me-1"></i>
+				  		<span class="ms-1 text-capitalize">
+				  			született
+				  		</span>
+				  	</label>
+
+				  	<!-- Input born -->
+				  	<div class="col-6 position-relative">
+				  		<input id="born"
+				  					 name="born" 
+				  					 type="date"
+				  					 class="form-control"
+				  					 style="max-width:170px;"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+				  					 required
+				  					 max="{{helper.maxBorn}}"
+				  					 min="{{helper.minBorn}}"
+				  					 ng-model="model.profile.born" 
+				  					 ng-clear-icon='{"left":"165px","right":""}'
+                     ng-disabled="!helper.isInEditMode">
+				  	</div>
+
+            <!-- Check mark -->
+            <div class="col-1 mt-1">
+              <span class="check-mark fw-bold text-success float-start"
+                    ng-show="profileForm.born.$valid && helper.isInEditMode">
+                &check;
+              </span>
+             </div>
+				  </div>
+
+				  <!-- Gender -->
+				  <fieldset class="row input-row mb-3">
+
+				  	<!-- Label -->
+				  	<legend class="col-form-label 
+				  								 col-5 text-end fw-semibold">
+				  		<i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  		<i class="fa-solid fa-venus-mars me-1"></i>
+				  		<span class="me-1 text-capitalize">
+				  			neme:
+				  		</span>
+				  	</legend>
+
+				  	<!-- Checkboxes -->
+				  	<div class="col-6 position-relative mt-1">
+
+				  		<!-- Inpu/Label for female -->
+				  		<div class="form-check form-check-inline">
+				  			<input id="female"
+				  						 name="gender" 
+				  						 type="radio"
+				  						 value="F"
+				  						 class="form-check-input opacity-100"
+				  						 ng-model="model.profile.gender"
+				  						 required
+                       ng-disabled="!helper.isInEditMode">
+				  			<label for="female" class="form-check-label opacity-100">
+				  				nő
+				  			</label>
+				  		</div>
+
+				  		<!-- Inpu/Label for male -->
+				  		<div class="form-check form-check-inline">
+				  			<input id="male"
+				  						 name="gender"
+				  						 type="radio" 
+				  						 value="M"
+				  						 class="form-check-input opacity-100"
+				  						 ng-model="model.profile.gender"
+				  						 required
+                       ng-disabled="!helper.isInEditMode">
+				  			<label for="male" class="form-check-label opacity-100">
+				  				férfi
+				  			</label>
+				  		</div>
+				  	</div>
+
+            <!-- Check mark -->
+            <div class="col-1 mt-1">
+              <span class="check-mark fw-bold text-success float-start"
+                    ng-show="profileForm.gender.$valid && helper.isInEditMode">
+                &check;
+              </span>
+             </div>
+				  </fieldset>
+
+				  <!-- Phone -->
+				  <div class="row input-row mb-3">
+
+				  	<!-- Label -->
+				  	<label for="phone" 
+				  				 class="col-form-label 
+                          col-5 text-end fw-semibold">
+              <i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  		<i class="fa-solid fa-mobile-screen me-1"></i>
+				  		<span class="text-capitalize">
+				  			<span class="me-1 text-capitalize">
+                  telefon:
+                </span>
+				  		</span>
+				  	</label>
+
+				  	<!-- Input phone -->
+				  	<div class="col-6 position-relative">
+				  		<input id="phone"
+				  		       name="phone" 
+				  					 type="tel"
+                     style="max-width:170px;"
+				  					 placeholder="telefon"
+				  					 class="form-control"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+				  					 maxlength="20"
+				  					 ng-model="model.profile.phone"
+				  					 ng-pattern="/^$|^(?!(0))[0-9]{7,10}$/"
+				  					 ng-allow-numbers
+				  					 ng-clear-icon='{"left":"165px","right":""}'
+                     ng-disabled="!helper.isInEditMode"
+                     required>
+				  	</div>
+
+            <!-- Check mark -->
+            <div class="col-1 mt-1">
+              <span class="check-mark fw-bold text-success float-start"
+                    ng-show="profileForm.phone.$valid && helper.isInEditMode">
+                &check;
+              </span>
+             </div>
+				  </div>
+
+          <!-- Address -->
+				  <div class="row input-row mb-3">
+
+            <!-- Label -->
+            <label for="address" 
+                   class="col-form-label 
+                          col-5 text-end fw-semibold">
+              <i class="fa-solid fa-star fa-2xs text-danger"></i>
+              <i class="fa-solid fa-location-dot me-1"></i>
+              <span class="text-capitalize">
+                cím:
+              </span>
+            </label>
+
+            <!-- Textarea address -->
+            <div class="col-6 position-relative">
+              <textarea id="address"
+                        name="address"
+                        placeholder="cím"
+                        class="form-control"
+                        spellcheck="false" 
+                        autocomplete="off"
+                        maxlength="200"
+                        rows="2"
+                        ng-model="model.profile.address"
+                        ng-clear-icon
+                        ng-disabled="!helper.isInEditMode"
+                        required>
+              </textarea>
+            </div>
+
+            <!-- Check mark -->
+            <div class="col-1 mt-1">
+              <span class="check-mark fw-bold text-success float-start"
+                    ng-show="profileForm.address.$valid && helper.isInEditMode">
+                &check;
+              </span>
+             </div>
+          </div>
+          <hr>
+
+          <!-- Links, buttons -->
+				  <div class="row input-row"
+               style="min-height:56px;">
+
+            <!-- Not edit mode links -->
+            <div class="me-auto col-6"
+                 ng-if="!helper.isInEditMode">
+
+							<!-- Change password -->
+							<div class="w-auto mb-1">
+								<a class="link-offset-2 link-offset-3-hover
+													link-underline link-underline-opacity-0 
+													link-underline-opacity-75-hover"
+									ng-click="methods.formChange('password')"
+									href="">
+									<i class="fa-solid fa-lock me-1"></i>
+									<span>Jelszó módosítása</span>
+								</a>
+							</div>
+
+							<!-- Change email -->
+							<div class="w-auto mb-1">
+								<a class="link-offset-2 link-offset-3-hover
+													link-underline link-underline-opacity-0 
+													link-underline-opacity-75-hover"
+									ng-click="methods.formChange('email')"
+									href="">
+									<i class="fa-regular fa-envelope me-1"></i>
+									<span>Email módosítása</span>
+								</a>
+							</div>
+            </div>
+
+            <!-- Not edit mode buttons -->
+            <div class="ms-auto col-6 text-end mt-2"
+                 ng-if="!helper.isInEditMode">
+
+							<!-- Modify -->
+              <button type="button"
+                      class="btn btn-primary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.modify()">
+                Módosít
+              </button>
+
+							<!-- Cancel (Exit) -->
+              <button type="button"
+                      class="btn btn-secondary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      data-bs-dismiss="modal" 
+                      aria-label="Close"
+                      ng-click="methods.preventState()">
+                Mégsem
+              </button>
+            </div>
+
+            <!-- Edit mode -->
+            <div class="w-auto ms-auto  mt-2" 
+                 ng-if="helper.isInEditMode">
+
+							<!-- Save -->
+              <button type="button"
+                      class="btn btn-primary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.accept()"
+                      ng-disabled="profileForm.$invalid || !helper.isModelChanged">
+                Mentés
+              </button>
+
+							<!-- Cancel -->
+              <button type="button"
+                      class="btn btn-secondary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.cancel()">
+                Mégsem
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Form change password -->
+        <form class="form-password"
+              name="passwordForm" novalidate
+              ng-if="helper.modelFormKey==='password'">
+
+					<!-- Title -->
+					<div class="row mb-4">
+						<h6 class="text-center display-6">Jelszó módosítása!</h6>
+					</div>
+
+          <!-- Current password -->
+	 			  <div class="row input-row mb-4">
+				  	<label for="password_current" 
+				  				 class="col-5 text-end fw-semibold">
+				  	 	<i class="fa-solid fa-star fa-2xs text-danger"></i>
+              <i class="fa-solid fa-lock me-1"></i>
+				  	 	<span>Jelenlegi jelszó:</span>
+				  	</label>
+				  	<div class="col-6 position-relative">
+				  	 	<input ng-attr-type="{{model.password.show_password?'text':'password'}}"
+				  					 name="password_current" 
+				  					 class="form-control" 
+				  					 id="password_current"
+				  					 placeholder="jelszó"
+				  					 ng-init="model.password.password_current=null"
+				  					 ng-model="model.password.password_current"
+				  					 ng-pattern="helper.currentPassword"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+				  					 ng-clear-icon
+				  					 maxlength="20" 
+				  					 required
+                     ng-disabled="!helper.isInEditMode">
+				  	</div>
+				  	<div class="col-1 mt-1">
+				  	 <span class="check-mark fw-bold text-success float-start"
+				  				 ng-show="passwordForm.password_current.$valid">
+				  		 &check;
+				  	 </span>
+				  	</div>
+	 			  </div>
+
+          <!-- New password -->
+	 			  <div class="row input-row mb-2">
+				  	<label for="password" 
+				  				 class="col-5 text-end fw-semibold">
+				  	 	<i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  	 	<i class="fa-solid fa-key me-1"></i>
+				  	 	<span>Új jelszó:</span>
+				  	</label>
+				  	<div class="col-6 position-relative">
+				  	 	<input ng-attr-type="{{model.password.show_password?'text':'password'}}"
+				  					 name="password" 
+				  					 class="form-control" 
+				  					 id="password"
+				  					 placeholder="új jelszó"
+				  					 ng-init="model.password.password=null"
+				  					 ng-model="model.password.password"
+				  					 ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+                     ng-compare-model-different="model.password.password_current"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+				  					 ng-clear-icon
+				  					 maxlength="20" 
+				  					 required
+                     ng-disabled="!helper.isInEditMode">
+				  	</div>
+				  	<div class="col-1 mt-1">
+				  	 <span class="check-mark fw-bold text-success float-start"
+				  				 ng-show="passwordForm.password.$valid">
+				  		 &check;
+				  	 </span>
+				  	</div>
+	 			  </div>
+        
+	 			  <!-- Password confirm -->
+	 			  <div class="row input-row mb-2">
+				  	<label for="password_confirm" 
+				  				 class="col-5 text-end fw-semibold">
+				  	 	<i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  	 	<i class="fa-solid fa-unlock-keyhole me-1"></i>
+				  	 	<span>Megerősítés:</span>
+				  	</label>
+				  	<div class="col-6 position-relative">
+				  	 	<input ng-attr-type="{{model.password.show_password?'text':'password'}}"
+				  					 name="password_confirm" 
+				  					 class="form-control" 
+				  					 id="password_confirm"
+				  					 placeholder="az új jelszó megerősítése"
+				  					 ng-init="model.password.password_confirm=null"
+				  					 ng-model="model.password.password_confirm"
+                     ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+				  					 ng-compare-model="model.password.password"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+				  					 ng-clear-icon
+				  					 maxlength="20" 
+				  					 required
+                     ng-disabled="!helper.isInEditMode">
+				  	</div>
+				  	<div class="col-1 mt-1">
+				  	 	<span class="check-mark fw-bold text-success float-start"
+				  				 	ng-show="passwordForm.password_confirm.$valid">
+				  		 	&check;
+				  	 	</span>
+				  	</div>
+	 			  </div>
+        
+	 			  <!-- Show/Hide password -->
+	 			  <div class="row input-row mb-1">
+	 			    <div class="col-5"></div>
+            <div class="col-6 position-relative">
+              <input type="checkbox" 
+                     class="form-check-input opacity-100" 
+                     id="show_password"
+                     ng-init="model.password.show_password=null"
+                     ng-model="model.password.show_password"
+                     ng-disabled="!helper.isInEditMode">
+              <label class="form-check-label fw-semibold opacity-100" 
+                     for="show_password">
+                <i class="fa-solid fa-eye ms-1"></i>
+                <span>Jelszót megjelenít</span>
+              </label>
+            </div>
+	 			  </div>
+          <hr>
+
+          <!-- Buttons -->
+				  <div class="row input-row"
+               style="min-height:56px;">
+
+            <!-- Not edit mode links -->
+            <div class="me-auto col-6"
+                 ng-if="!helper.isInEditMode">
+
+							<!-- Back -->
+							<div class="w-auto mt-3 mb-1">
+								<a class="link-offset-2 link-offset-3-hover
+													link-underline link-underline-opacity-0 
+													link-underline-opacity-75-hover"
+									ng-click="methods.formChange('profile')"
+									href="">
+									<i class="fa-solid fa-left-long me-1"></i>
+									<span>Vissza</span>
+								</a>
+							</div>
+            </div>
+          
+            <!-- Not edit mode buttons -->
+            <div class="ms-auto col-6 text-end mt-2"
+                 ng-if="!helper.isInEditMode">
+
+							<!-- Modify -->
+              <button type="button"
+                      class="btn btn-primary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.modify()">
+                Módosít
+              </button>
+            </div>
+          
+            <!-- Edit mode -->
+            <div class="w-auto ms-auto  mt-2" 
+                 ng-if="helper.isInEditMode">
+
+							<!-- Save -->
+              <button type="button"
+                      class="btn btn-primary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.accept()"
+                      ng-disabled="passwordForm.$invalid">
+                Mentés
+              </button>
+
+							<!-- Cancel -->
+              <button type="button"
+                      class="btn btn-secondary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.cancel()">
+                Mégsem
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Form change email -->
+        <form class="form-email"
+              name="emailForm" novalidate
+              ng-if="helper.modelFormKey==='email'">
+
+					<!-- Title -->
+					<div class="row mb-4">
+						<h6 class="text-center display-6">Email cím módosítása!</h6>
+					</div>
+
+					<!-- Current email -->
+				  <div class="row input-row mb-2">
+
+				  	<!-- Label -->
+				  	<label for="email_current" 
+				  				 class="col-form-label
+                          col-5 text-end fw-semibold">
+							<i class="fa-solid fa-star fa-2xs text-danger"></i>
+							<i class="fa-regular fa-envelope me-1"></i>
+				  		<span class="ms-1">
+                Jelenlegi email:
+              </span>
+				  	</label>
+
+				  	<!-- Input email -->
+				  	<div class="col-6 position-relative">
+				  		<input id="email_current"
+				  					 name="email_current" 
+				  					 type="email"
+				  					 class="form-control"
+										 placeholder="jelenlegi email"
+				  					 ng-init="model.email.email_current=null"
+				  					 ng-model="model.email.email_current"
+				  					 ng-pattern="helper.currentEmail"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+										 ng-clear-icon 
+				  					 maxlength="50"
+				  					 required
+										 ng-disabled="!helper.isInEditMode">
+				  	</div>
+
+						<!-- Check mark -->
+						<div class="col-1 mt-1">
+							<span class="check-mark fw-bold text-success float-start"
+										ng-show="emailForm.email_current.$valid">
+								&check;
+							</span>
+						 </div>
+				  </div>
+
+					<!-- Current password -->
+					<div class="row input-row mb-1">
+				  	<label for="password_current" 
+				  				 class="col-5 text-end fw-semibold">
+				  	 	<i class="fa-solid fa-star fa-2xs text-danger"></i>
+              <i class="fa-solid fa-lock me-1"></i>
+				  	 	<span>Jelszó:</span>
+				  	</label>
+				  	<div class="col-6 position-relative">
+				  	 	<input ng-attr-type="{{model.email.show_password?'text':'password'}}"
+				  					 name="password_current" 
+				  					 class="form-control" 
+				  					 id="password_current"
+				  					 placeholder="jelszó"
+				  					 ng-init="model.email.password_current=null"
+				  					 ng-model="model.email.password_current"
+				  					 ng-pattern="helper.currentPassword"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+				  					 ng-clear-icon
+				  					 maxlength="20" 
+				  					 required
+                     ng-disabled="!helper.isInEditMode">
+				  	</div>
+				  	<div class="col-1 mt-1">
+				  	 <span class="check-mark fw-bold text-success float-start"
+				  				 ng-show="emailForm.password_current.$valid">
+				  		 &check;
+				  	 </span>
+				  	</div>
+	 			  </div>
+
+					<!-- Show/Hide password -->
+					<div class="row input-row mb-4">
+						<div class="col-5"></div>
+					 <div class="col-6 position-relative">
+						 <input type="checkbox" 
+										class="form-check-input opacity-100" 
+										id="show_password"
+										ng-init="model.email.show_password=null"
+										ng-model="model.email.show_password"
+										ng-disabled="!helper.isInEditMode">
+						 <label class="form-check-label fw-semibold opacity-100" 
+										for="show_password">
+							 <i class="fa-solid fa-eye ms-1"></i>
+							 <span>Jelszót megjelenít</span>
+						 </label>
+					 </div>
+					</div>
+
+					<!-- New email -->
+				  <div class="row input-row mb-2">
+
+				  	<!-- Label -->
+				  	<label for="email" 
+				  				 class="col-form-label
+                          col-5 text-end fw-semibold">
+							<i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  		<i class="fa-solid fa-envelope me-1"></i>
+				  		<span class="ms-1">
+                Új email:
+              </span>
+				  	</label>
+
+				  	<!-- Input email -->
+				  	<div class="col-6 position-relative">
+				  		<input id="email"
+				  					 name="email" 
+				  					 type="email"
+				  					 class="form-control"
+										 placeholder="új email"
+				  					 ng-init="model.email.email=null"
+				  					 ng-model="model.email.email"
+				  					 ng-pattern="/^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
+										 ng-compare-model-different="model.email.email_current"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+										 ng-clear-icon 
+				  					 maxlength="50"
+				  					 required
+										 ng-disabled="!helper.isInEditMode">
+				  	</div>
+
+						<!-- Check mark -->
+						<div class="col-1 mt-1">
+							<span class="check-mark fw-bold text-success float-start"
+										ng-show="emailForm.email.$valid">
+								&check;
+							</span>
+						 </div>
+				  </div>
+
+					<!-- Confirm new email -->
+				  <div class="row input-row mb-1">
+
+				  	<!-- Label -->
+				  	<label for="email_confirm" 
+				  				 class="col-form-label
+                          col-5 text-end fw-semibold">
+							<i class="fa-solid fa-star fa-2xs text-danger"></i>
+				  		<i class="fa-solid fa-envelope-circle-check me-1"></i>
+				  		<span class="ms-1">
+                Megerősítés:
+              </span>
+				  	</label>
+
+				  	<!-- Input email -->
+				  	<div class="col-6 position-relative">
+				  		<input id="email_confirm"
+				  					 name="email_confirm" 
+				  					 type="email"
+				  					 class="form-control"
+										 placeholder="új email megerősítése"
+				  					 ng-init="model.email.email_confirm=null"
+				  					 ng-model="model.email.email_confirm"
+				  					 ng-pattern="/^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
+										 ng-compare-model="model.email.email"
+				  					 spellcheck="false" 
+				  					 autocomplete="off"
+										 ng-clear-icon 
+				  					 maxlength="50"
+				  					 required
+										 ng-disabled="!helper.isInEditMode">
+				  	</div>
+
+						<!-- Check mark -->
+						<div class="col-1 mt-1">
+							<span class="check-mark fw-bold text-success float-start"
+										ng-show="emailForm.email_confirm.$valid">
+								&check;
+							</span>
+						 </div>
+				  </div>
+					<hr>
+
+					<!-- Buttons -->
+				  <div class="row input-row"
+               style="min-height:56px;">
+
+            <!-- Not edit mode links -->
+            <div class="me-auto col-6"
+                 ng-if="!helper.isInEditMode">
+
+							<!-- Back -->
+							<div class="w-auto mt-3 mb-1">
+								<a class="link-offset-2 link-offset-3-hover
+													link-underline link-underline-opacity-0 
+													link-underline-opacity-75-hover"
+									ng-click="methods.formChange('profile')"
+									href="">
+									<i class="fa-solid fa-left-long me-1"></i>
+									<span>Vissza</span>
+								</a>
+							</div>
+            </div>
+          
+            <!-- Not edit mode buttons -->
+            <div class="ms-auto col-6 text-end mt-2"
+                 ng-if="!helper.isInEditMode">
+
+							<!-- Modify -->
+              <button type="button"
+                      class="btn btn-primary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.modify()">
+                Módosít
+              </button>
+            </div>
+          
+            <!-- Edit mode -->
+            <div class="w-auto ms-auto  mt-2" 
+                 ng-if="helper.isInEditMode">
+
+							<!-- Save -->
+              <button type="button"
+                      class="btn btn-primary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.accept()"
+                      ng-disabled="emailForm.$invalid">
+                Mentés
+              </button>
+
+							<!-- Cancel -->
+              <button type="button"
+                      class="btn btn-secondary mb-2 w-auto px-4 mx-1
+                             shadow-sm-bottom-end"
+                      ng-click="methods.cancel()">
+                Mégsem
+              </button>
+            </div>
+          </div>
+        </form>
+			</div>
+	  </div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+{
+  "tables": [
+    {
+      "title": "Dolgozók",
+      "style": ["'max-height':'88vh'","'min-height':'88vh'"],
+      "header": {
+        "id": "#",
+        "name": "Név",
+        "typeName": "Típus",
+        "rankName": "Rang",
+        "born": "Született",
+        "genderName": "Neme",
+        "phone": "Telefon",
+        "address": "Cím",
+        "email": "Email",
+        "validName": "Érvényes"
+      }
+    }
+  ]
+}

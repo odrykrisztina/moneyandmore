@@ -1,0 +1,73 @@
+<!-- Wrapper -->
+<div class="position-relative">
+
+	<!-- Team building -->
+	<div class="container-fluid mt-0 px-0">
+
+		<div class="row m-0 justify-content-center position-relative">
+
+			<!-- Team building carousel -->
+			<div id="team_building_carousel"
+					 class="carousel slide m-0 p-0"
+					 data-bs-ride="carousel"
+					 ng-if="data.carousel"
+					 ng-bs-carousel-force-start>
+
+				<!-- Carousel images -->
+				<div class="carousel-inner">
+					<div ng-repeat="item in data.carousel track by $index"
+							class="carousel-item" 
+							ng-class="{active: $index === 0}">
+						<img ng-src="{{item}}" class="d-block w-100" alt="img">
+					</div>
+				</div>
+
+				<!-- Carousel controls -->
+				<button ng-repeat="x in ['prev','next'] track by x"
+								class="carousel-control-{{x}}" 
+								type="button" 
+								data-bs-target="#team_building_carousel" 
+								data-bs-slide="{{x}}">
+					<span class="carousel-control-{{x}}-icon" aria-hidden="true"></span>
+					<span class="visually-hidden text-capitalize">{{x}}</span>
+				</button>
+			</div>
+
+			<!-- Image content -->
+			<div class="image-content from-left position-absolute 
+									bg-dark-transparent mx-3"
+					 ng-if="data.carousel">
+				<p class="text-center text-light display-3 py-3">
+					Csapatépítés
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Gallery -->
+	<div class="container my-5"
+			 ng-if="data.gallery && data.gallery.length">
+
+		<!-- Gallery title -->
+		<div class="row justify-content-center mb-3 mt-5">
+			<p class="col-11 col-md-10 col-xl-9 text-center text-color-base display-6">
+				Galéria
+			</p>
+		</div>
+
+		<!-- Picture(s) -->
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
+			<div class="col" ng-repeat="item in data.gallery track by $index">
+				<div class="card shadow-sm-bottom-end overflow-hidden" 
+						 data-index="{{$index}}">
+					<img class="card-img-top img-fluid" alt="img" 
+							 ng-src="{{item}}">
+				</div>
+			</div>
+		</div>
+
+		<!-- Scroll to top -->
+		<ng-scroll-to-top></ng-scroll-to-top>
+	</div>
+	</div>
+</div>

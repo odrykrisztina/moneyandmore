@@ -1,0 +1,18 @@
+{
+  "tables": [
+    {
+      "title": "Irodáink",
+      "style": ["'max-height':'88vh'","'min-height':'88vh'"],
+      "header": {
+        "id": "#",
+        "country": "Ország",
+        "country_code": "Kód",
+        "phone": "Telefon",
+        "city": "Település",
+        "postcode": "Irányítószám",
+        "address": "Cím",
+        "email": "Email"
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tables": [
+    {
+      "title": "Típus csoport",
+      "style": ["'max-height':'40vh'","'min-height':'40vh'"],
+      "header": {
+        "id": "Csoport azon.",
+        "name": "Név"
+      }
+    },
+    {
+      "title": "Típus",
+      "style": ["'max-height':'40vh'","'min-height':'40vh'"],
+      "header": {
+        "id": "Azon.",
+        "name": "Név"
+      },
+      "relationship": {
+        "parentIndex": 0,
+        "parentKey": "id",
+        "currentKey": "type"
+      }
+    }
+  ]
+}

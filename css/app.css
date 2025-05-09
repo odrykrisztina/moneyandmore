@@ -1,0 +1,153 @@
+header {min-height: 60px;}
+footer {min-height: 90px;}
+.header_top::before {
+	content: "";
+	height: 50px;
+	background-color: black;
+	display: block;
+}
+.text-color-base {
+	color: #9ec54c !important;
+}
+.bg-base {
+	background-color: #9ec54c !important;
+}
+.page-container.user main,
+.page-container.profile main {
+	background-image: url('../media/image/user-bg.webp');
+}
+.page-container.profile main > div {
+	min-height: calc(100vh - 250px) !important;
+}
+.btn-base {
+	--bs-btn-bg: #9ec54c;
+	--bs-btn-border-color: #9ec54c;
+	--bs-btn-hover-bg: #7caa3c;
+	--bs-btn-hover-border-color: #8ec244;
+	--bs-btn-active-bg: #8dc63f;
+	--bs-btn-active-border-color: #8dc63f;
+	--bs-btn-disabled-bg: #9ec54c;
+	--bs-btn-disabled-border-color: #9ec54c;
+}
+.scroll-to-top-icon {
+	right: 20px; 
+	bottom: 40px;
+}
+.page-container.home .scroll-to-top-icon,
+.page-container.about_us .scroll-to-top-icon {
+	bottom: 250px;
+}
+.scroll-to-top-icon:hover i {
+	color: #7caa3c !important;
+}
+.image-content {
+	bottom: 0;
+	opacity: 0;
+	-webkit-transition: transform 1s ease-out 0s, 
+											opacity 0.5s ease-in 	0.1s;
+					transition: transform 1s ease-out 0s, 
+											opacity 0.5s ease-in 	0.1s;
+}
+.image-content.from-left {
+	-webkit-transform: translateX(-100%);
+					transform: translateX(-100%);
+}
+.image-content.from-right {
+	-webkit-transform: translateX(100%);
+					transform: translateX(100%);
+}
+.image-content.show {
+	opacity: 1;
+	-webkit-transform: translateX(0);
+					transform: translateX(0);
+}
+.card-solution:hover > .card,
+.offices:hover {
+	background-color: rgb(238, 238, 238);
+}
+.navbar #navbar_content {
+	font-size: 1.125rem !important;
+}
+.navbar .nav-link.active {
+	text-decoration: underline;
+	text-decoration-color: #9ec54c;
+	text-decoration-thickness: 3px; 
+	cursor: default;
+}
+.dropdown-menu { z-index: 1040 !important; }
+.modal .modal-btn {
+	opacity: .25;
+	-webkit-transition: opacity .5s ease-out;
+					transition: opacity .5s ease-out; 
+}
+.modal .modal-btn:hover {
+	opacity: 1;
+}
+
+/* Login/Register/Frogot password */
+.user-sign-container {
+	max-width: 900px;
+	min-height: 580px;
+}
+.user-sign-container .form-container {
+	transition: all 0.6s ease-in-out;
+}
+.user-sign-container .overlay-container,
+.user-sign-container .overlay,
+.user-sign-container .overlay-panel {
+	transition: transform 0.6s ease-in-out;
+}
+.user-sign-container .login-container {
+	z-index: 2;
+}
+.user-sign-container.show-overlay-left-panel .login-container,
+.user-sign-container .register-frogot-password-container {
+	opacity: 0;
+}
+.user-sign-container .register-frogot-password-container {
+	z-index: 1;
+}
+.user-sign-container.show-overlay-left-panel .register-frogot-password-container {
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+.user-sign-container .overlay-container {
+	z-index: 100;
+}
+.user-sign-container .overlay {
+	left: -100%;
+	width: 200%;
+}
+.user-sign-container.show-overlay-left-panel .login-container,
+.user-sign-container.show-overlay-left-panel .register-frogot-password-container {
+	transform: translateX(100%);
+}
+.user-sign-container.show-overlay-left-panel .overlay-container {
+	transform: translateX(-100%);
+}
+.user-sign-container.show-overlay-left-panel .overlay {
+	transform: translateX(50%);
+}
+.user-sign-container .overlay-left {
+	transform: translateX(-20%);
+}
+.user-sign-container .overlay,
+.user-sign-container .overlay-right,
+.user-sign-container .overlay-panel,
+.user-sign-container.show-overlay-left-panel .overlay-left {
+	transform: translateX(0);
+}
+.user-sign-container.show-overlay-left-panel .overlay-right {
+	transform: translateX(20%);
+}

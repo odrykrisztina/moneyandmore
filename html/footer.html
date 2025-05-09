@@ -1,0 +1,181 @@
+<!-- Container -->
+<div class="container-fluid bg-dark p-3 pb-2"
+     ng-class="{'mt-4': $root.state.group!=='user',
+                'pt-1': $root.state.group!=='user'}">
+
+  <!-- Logo -->
+  <div class="row justify-content-center">
+    <div class="text-center">
+      <a ui-sref="home">
+        <img class="img-fluid" alt="Money &amp; More"
+             src="./media/image/logo/logo.webp">
+      </a>
+    </div>
+  </div>
+
+  <!-- Company -->
+  <div class="row justify-content-center"
+       ng-if="$root.state.group!=='user'">
+
+    <!-- Relationship -->
+    <div class="col-12 w-auto mx-auto mt-3">
+      <table class="table-dark text-nowrap">
+        <caption class="caption-top px-2 text-small-caps text-color-base text-center fs-5">
+          Kapcsolat
+        </caption>
+        <tbody>
+          <tr>
+            <th class="text-end">
+              Cím:
+            </th>
+            <td class="ps-2">1138 Budapest,</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td class="ps-2">Madarász Viktor utca 47-49.</td>
+          </tr>
+          <tr>
+            <th class="text-end">
+              Postacím:
+            </th>
+            <td class="ps-2">1392 Budapest, Pf.: 266</td>
+          </tr>
+          <tr>
+            <th class="text-end">
+              Telefon:
+            </th>
+            <td class="ps-2">+36 20 620 4800</td>
+          </tr>
+          <tr>
+            <th class="text-end">
+              Email:
+            </th>
+            <td class="ps-2">info@moneyandmore.hu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Company data -->
+    <div class="col-12 w-auto mx-auto mt-3">
+      <table class="table-dark text-nowrap">
+        <caption class="caption-top px-2 text-small-caps text-color-base text-center fs-5">
+          Cégadatok
+        </caption>
+        <tbody>
+          <tr>
+            <td class="text-center" colspan="2">
+              Money & More Pénzügyi Tanácsadó Zrt.
+            </td>
+          </tr>
+          <tr>
+            <th class="text-end">
+              Székhely:
+            </th>
+            <td class="ps-2">1138 Budapest,</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td class="ps-2">Madarász Viktor utca 47-49.</td>
+          </tr>
+          <tr>
+            <th class="text-end">
+              Cégjegyzékszám:
+            </th>
+            <td class="ps-2">01-10-046364</td>
+          </tr>
+          <tr>
+            <th class="text-end">
+              Adószám:
+            </th>
+            <td class="ps-2">14740974-4-41</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Services -->
+    <div class="cok-12 w-auto mx-auto mt-3">
+      <table class="table-dark text-nowrap">
+        <caption class="caption-top px-2 text-small-caps text-color-base text-center fs-5">
+          Szolgáltatások
+          <span class="p-5"></span>
+        </caption>
+        <tbody>
+          <tr>
+            <td class="text-start">
+              Életbiztosítás
+            </td>
+            <td class="ps-5 text-start">
+              Magánorvos
+            </td>
+          </tr>
+          <tr>
+            <td class="text-start">
+              Független pénzügyi
+            </td>
+            <td class="ps-5 text-start">
+              Nyugdíjkalkulátor
+            </td>
+          </tr>
+          <tr>
+            <td class="text-start">
+              Pénzügyi tanácsadás
+            </td>
+            <td class="ps-5 text-start">
+              Nyugdíjbiztosítás
+            </td>
+          </tr>
+          <tr>
+            <td class="text-start">
+              Hitelügyintézés
+            </td>
+            <td class="ps-5 text-start">
+              Egészségbiztosítás
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Social media -->
+  <div class="row mt-5"
+       ng-if="$root.state.group!=='user'">
+    <ul class="list-unstyled text-center mb-1"
+        ng-init="socialMedia=[{icon:'fab fa-facebook-f',  href:'#', bg:'#3b5998'}, 
+                              {icon:'fab fa-twitter',     href:'#', bg:'#55acee'},
+                              {icon:'fab fa-google',      href:'#', bg:'#dd4b39'},
+                              {icon:'fab fa-instagram',   href:'#', bg:'#ac2bac'},
+                              {icon:'fab fa-linkedin-in', href:'#', bg:'#0082ca'},
+                              {icon:'fab fa-github',      href:'#', bg:'#333333'}]">
+      <li class="d-inline-block mx-sm-2"
+          ng-repeat="item in socialMedia">
+        <a class="btn text-white btn-floating mx-1"
+           ng-class="{'disabled': $root.state.group === 'user'}"
+           ng-style="{'backgroundColor': item.bg}"
+           href="{{item.href}}"
+           role="button">
+          <i ng-class="item.icon"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Copyright -->
+  <div class="container mt-3 px-5">
+    <div class="row">
+      <p class="fs-md text-center my-0 border-top text-white pb-1">
+        <span>&copy; 2021-{{currentYear}}</span>
+        <span class="text-uppercase text-bold"
+              ng-if="$root.state.group!=='user'">
+          <span class="text-color-base ms-2">[ </span>
+          <span>Money</span>
+          <span class="text-color-base fs-5"> & </span>
+          <span>More</span>
+          <span class="text-color-base"> ]</span>
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
